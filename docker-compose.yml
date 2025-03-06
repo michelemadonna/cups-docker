@@ -9,7 +9,7 @@ services:
             - "631:631"
         devices:
             - /dev/bus/usb:/dev/bus/usb
-            - /dev/usb:/dev/usb
+#            - /dev/usb:/dev/usb
         environment:
             - CUPSADMIN=${CUPSADMIN}
             - CUPSPASSWORD=${CUPSPASSWORD}
