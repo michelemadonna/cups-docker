@@ -1,0 +1,18 @@
+version: "3"
+services:
+    cups:
+        build: .
+        container_name: cups
+        restart: unless-stopped
+        network_mode: "host"
+        ports:
+            - "631:631"
+        devices:
+            - /dev/bus/usb:/dev/bus/usb
+            - /dev/usb:/dev/usb
+        environment:
+            - CUPSADMIN=${CUPSADMIN}
+            - CUPSPASSWORD=${CUPSPASSWORD}
+            - TZ=${tz}
+        volumes:
+            - /var/run/dbus:/var/run/dbus
