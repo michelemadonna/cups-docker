@@ -123,6 +123,8 @@ In the event that the printer is turned off and then turned back on, the Docker 
     
     if [ "$container_status" == "running" ]; then
         echo "Docker container 'cups' is active. Executing 'hp-firmware' inside the container."
+        sleep 15
+        docker restart cups
         docker exec cups hp-firmware
     else
         echo "Docker container 'cups' is not active. Cannot execute 'hp-firmware'."
